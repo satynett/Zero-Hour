@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Hour | Workspace</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <link rel="stylesheet" href="workspace_red.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-layout">
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <span>HISTORY</span>
+                <button class="close-btn" onclick="toggleSidebar()">✕</button>
+            </div>
+            <div class="history-list" id="historyList">
+                </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="chat-header">
+                <button id="menuBtn" class="menu-btn hidden" onclick="toggleSidebar()">☰</button>
+                <div class="subject-name" id="displaySubject">SUBJECT NAME</div>
+                <button onclick="location.href='library_red.html'" class="exit-btn">Exit</button>
+            </header>
+
+            <div class="chat-area" id="chatArea">
+                <div class="chat-container" id="chatContainer">
+                    <div class="bot-msg">
+                        <div class="avatar">ZH</div>
+                        <div class="bubble">Welcome back to Zero Hour. Ready to dive into your studies?</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <input type="text" id="userInput" placeholder="Ask Zero Hour..." autocomplete="off">
+                    <button id="sendBtn" class="send-btn">➤</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="workspace_red.js"></script>
+</body>
+</html>

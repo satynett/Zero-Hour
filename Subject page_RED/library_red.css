@@ -1,0 +1,120 @@
+body {
+    background-color: #0a0000; /* Deep Black-Red */
+    color: #fecaca; /* Light pink-red text */
+    font-family: 'Inter', sans-serif;
+    padding: 40px;
+    margin: 0;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-weight: 900;
+    font-size: 2.2rem;
+    letter-spacing: -2px;
+    color: white;
+}
+
+.brand-logo span {
+    color: #ef4444; /* Bright Red */
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.search-bar {
+    background: #1a0505; /* Deep wine background */
+    border: 1px solid #450a0a; /* Dark red border */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    width: 350px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.search-bar:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.search-bar::placeholder {
+    color: #7f1d1d;
+}
+
+.add-btn {
+    background: #991b1b; /* Crimson button */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+    background: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+/* 4-Column Responsive Grid */
+.subject-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.subject-card {
+    background: #1a0505;
+    border: 1px solid #450a0a;
+    padding: 30px 20px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+}
+
+.subject-card:hover {
+    border-color: #ef4444;
+    transform: translateY(-10px);
+    background: #2a0a0a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-icon {
+    height: 110px;
+    background: #0a0000;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    border: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.subject-card h3 { 
+    margin: 0; 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: #fee2e2;
+}
+
+.subject-card p { 
+    color: #7f1d1d; 
+    font-size: 0.8rem; 
+    margin-top: 5px; 
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) { .subject-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .subject-grid { grid-template-columns: 1fr; } }
