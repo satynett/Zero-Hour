@@ -1,0 +1,97 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.project-header {
+    position: absolute;
+    top: 65px; 
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.project-header h1 {
+    color: white;
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: -3px;
+    margin: 0;
+    text-transform: uppercase;
+    display: flex; /* Added flex to align words and space perfectly */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Translucent Blending for O and H */
+.blend {
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    filter: brightness(1.2);
+}
+
+/* Controlled Space between Zero and Hour */
+.space {
+    width: 40px; /* Adjust this to increase or decrease the gap */
+}
+
+.stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.pill-container {
+    position: relative;
+    height: 95vh; 
+    aspect-ratio: 1 / 1;
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.hotspot {
+    position: absolute;
+    width: 20%;  
+    height: 7%;  
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    z-index: 10;
+    background: transparent;
+}
+
+#blue-pill {
+    top: calc(55% + 50px); 
+    left: 15%;
+}
+
+#red-pill {
+    top: calc(55% + 50px);
+    right: 15%;
+}
+
+#blue-pill:hover {
+    box-shadow: 0 0 35px rgba(0, 242, 255, 0.6);
+    background: rgba(0, 242, 255, 0.05);
+}
+
+#red-pill:hover {
+    box-shadow: 0 0 35px rgba(255, 49, 49, 0.6);
+    background: rgba(255, 49, 49, 0.05);
+}
