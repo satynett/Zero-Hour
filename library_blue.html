@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Hour | Blue Library</title>
+    <link rel="stylesheet" href="library_blue.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    <div class="container">
+        <header class="main-header">
+            <h1 class="logoText">ZERO<span>HOUR</span></h1>
+            
+            <div class="action-bar">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search modules...">
+                </div>
+                <button class="add-btn" onclick="openModal()">
+                    <span class="plus">+</span> Add Subject
+                </button>
+            </div>
+        </header>
+
+        <div class="subject-grid" id="subjectGrid">
+            </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h2>Add New Module</h2>
+            <input type="text" id="newTitle" placeholder="Subject Title (e.g. Data Structures)">
+            <input type="text" id="newDesc" placeholder="Brief Description">
+            <input type="text" id="newIcon" placeholder="Emoji Icon (e.g. 💻)">
+            <div class="modal-actions">
+                <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+                <button class="confirm-btn" onclick="addNewSubject()">Create Module</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="library_blue.js"></script>
+</body>
+</html>

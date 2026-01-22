@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Hour | Blue Workspace</title>
+    <link rel="stylesheet" href="workspace_blue.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+</head>
+<body>
+    <div class="workspace-layout">
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <span>RECENT HISTORY</span>
+                <button class="close-btn" onclick="toggleSidebar()">✕</button>
+            </div>
+            <div class="history-content" id="historyList">
+                </div>
+        </aside>
+
+        <main class="chat-main">
+            <header class="chat-header">
+                <button id="menuBtn" class="menu-btn" onclick="toggleSidebar()">☰</button>
+                <div class="subject-badge" id="displaySub">SUBJECT</div>
+                <button onclick="location.href='library_blue.html'" class="exit-btn">Exit</button>
+            </header>
+
+            <div class="chat-area" id="chatArea">
+                <div class="chat-container" id="chatContainer"></div>
+            </div>
+
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <input type="text" id="userInput" placeholder="Ask Blue AI..." autocomplete="off">
+                    <button id="sendBtn">➤</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="workspace_blue.js"></script>
+</body>
+</html>
