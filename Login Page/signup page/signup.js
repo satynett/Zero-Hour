@@ -68,11 +68,12 @@ window.handleGoogleSignup = async function() {
         
         // --- CHANGE START ---
         // Redirect to home page
-        window.location.href = "../home.html";
+        window.location.href = "../../Home_Page/home.html";
         // --- CHANGE END ---
         
     } catch (error) {
         console.error("Google Error:", error);
         alert("Google Sign-In failed. Please try again.");
     }
+
 }
