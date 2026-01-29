@@ -12,15 +12,24 @@ const openai = new OpenAI({
     apiKey: process.env.OPENROUTER_API_KEY,
 });
 
-app.post('/api/chat', async (req, res) => {
-    const { messages, subject } = req.body;
+// --- PERSONA 1: ACADEMIC WEAPON (Blue Mode) ---
+const LOCKED_IN_PROMPT = `
+You are "Zero Hour," an elite academic strategist.
+TONE: Cold, precise, military-grade efficiency.
+FORMAT: Use Markdown tables, bold text, and clear headers.
+PHILOSOPHY: "We do not accept failure."
+ENDING: End responses with "Stay focused." or "Mission continues."
 
-    try {
-        const systemPrompt = {
-            role: "system",
-            content: `You are Zero Hour AI, a B.Tech Tutor for ${subject}. 
-            
-            DIAGNOSTIC RULE:
+`;
+
+// --- PERSONA 2: I AM COOKED (Red Mode) ---
+const COOKED_PROMPT = `
+You are a chaotic Gen-Z study buddy. The user is failing ("cooked").
+TONE: Panic, slang ("no cap", "bet", "skill issue", "fr", "💀", "cooked").
+SPEED: Bullet points only. Ain't nobody reading paragraphs.
+RULE: If they ask something dumb, gently roast them (e.g., "Bro really asked that? 💀").
+ENDING: End with "We making it out the hood." or "Don't sell."
+DIAGNOSTIC RULE:
             - Look at the 'user' messages in the history. 
             - If the student has ALREADY mentioned a chapter (e.g., 'Semiconductors' or 'Optics'), move to Step 2 IMMEDIATELY.
             - Do NOT repeat Step 1 if the answer is already in the chat history.
@@ -33,20 +42,33 @@ app.post('/api/chat', async (req, res) => {
 
             STRICT: Only answer academic queries.`
         };
+`;
 
+app.post('/api/chat', async (req, res) => {
+    const { messages = [], subject = "" } = req.body;
+
+    // DETECT MODE: If the subject string contains "COOKED", trigger meme mode
+    const isCooked = subject.includes("COOKED");
+
+    const systemPrompt = {
+        role: "system",
+        content: isCooked ? COOKED_PROMPT : LOCKED_IN_PROMPT
+    };
+
+    try {
         const completion = await openai.chat.completions.create({
-            model: "google/gemini-2.0-flash-001", // Using a highly stable model for history tracking
+            model: "google/gemini-2.0-flash-001",
             messages: [systemPrompt, ...messages],
-            temperature: 0.5 // Lower temperature for more consistent logic
+            temperature: isCooked ? 0.8 : 0.3, // High temp for chaos, low for focus
         });
 
         res.json({ text: completion.choices[0].message.content });
 
     } catch (error) {
-        console.error("DEBUG ERROR:", error.message);
-        res.status(500).json({ text: "AI Error: " + error.message });
+        console.error("AI Error:", error);
+        res.status(500).json({ text: "Server is selling (Error). 📉" });
     }
 });
 
 const PORT = 5000;
-app.listen(PORT, () => console.log(`🚀 Zero Hour Backend live on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Zero Hour running on port ${PORT}`));
